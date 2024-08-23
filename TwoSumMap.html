@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script>
+function twoNumbers(arr, num) {
+  const map = {};
+  for (let i = 0; i < arr.length; i++) {
+    const complement = num - arr[i];
+    if (map[complement] !== undefined) {
+      console.log(arr[i] + " " + complement);
+      return; 
+    }
+    map[arr[i]] = i; 
+    console.log(map)
+  }
+}
+    twoNumbers([4, 2, 3, 4, 9], 13);
+  </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+
+<!-- spaceCoplexity O1 -->
+<!-- timeComplexity  O(n²) -->
