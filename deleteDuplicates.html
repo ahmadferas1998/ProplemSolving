@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function ListNode(val, next = null) {
+        this.val = val;
+        this.next = next;
+      }
+
+      function deleteDuplicates(head) {
+        if (head == null) return null;
+
+        let current = head;
+
+        while (current != null && current.next != null) {
+          if (current.val === current.next.val) {
+            current.next = current.next.next;
+          } else {
+            current = current.next;
+          }
+        }
+
+        return head;
+      }
+
+      function createLinkedList(arr) {
+        if (arr.length === 0) return null;
+
+        let head = new ListNode(arr[0]);
+        let current = head;
+        for (let i = 1; i < arr.length; i++) {
+          current.next = new ListNode(arr[i]);
+          current = current.next;
+        }
+        return head;
+      }
+
+      function printLinkedList(head) {
+        let current = head;
+        let result = [];
+        while (current !== null) {
+          result.push(current.val);
+          current = current.next;
+        }
+        console.log(result);
+      }
+
+      window.onload = function() {
+        let head = createLinkedList([1, 1, 2, 3, 3]);
+        head = deleteDuplicates(head);
+        printLinkedList(head); // [1, 2, 3]
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

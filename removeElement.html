@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var removeElement = function (nums, val) {
+        var arr =[]
+        const uniqueArray = nums.map((num)=>{
+            if(num !==val) arr.push(num)
+        })
+
+         console.log(arr)
+      };
+
+      removeElement([0,1,2,2,3,0,4,2],2);
+    </script>
+  </head>
+  <body></body>
+</html>

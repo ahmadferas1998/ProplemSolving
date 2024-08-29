@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #output {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        background-color: #f9f9f9;
+      }
+    </style>
+    <script>
+      //   var removeDuplicates = function (nums) {
+      //     const letters = new Set();
+      //     for (let i = 0; i < nums.length; i++) {
+      //       letters.add(nums[i]);
+      //     }
+      //     const output = Array.from(letters).join(', ');
+      //     document.getElementById('output').innerText = output;
+      //   };
+      //   window.onload = function() {
+      //     removeDuplicates([1, 1, 2]);
+      //   };
+
+      var removeDuplicates = function (nums) {
+        const uniqueArray = nums.reduce((acc, num) => {
+          if (!acc.includes(num)) {
+            acc.push(num);
+          }
+          return acc;
+        }, []);
+
+        const output = uniqueArray.join(", ");
+        document.getElementById("output").innerText = output;
+      };
+
+      window.onload = function () {
+        removeDuplicates([1, 1, 2]);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="output">Output will appear here</div>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var mergeTwoLists = function (list1, list2) {
+        var len = Math.max(list1.length, list2.length);
+        var newarr = [];
+        console.log(len);
+        for (let i = 0; i < len; i++) {
+          if (list1[i] <= list2[i]) {
+            newarr.push(list1[i]);
+            newarr.push(list2[i]);
+          } else {
+            newarr.push(list2[i]);
+          }
+        }
+        console.log(newarr);
+      };
+
+      mergeTwoLists([1, 2, 4], [1, 3, 4]);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -25,18 +25,16 @@ const romanNumerals = {
 var romanToInt = function(s) {
   let sum = 0;
   for (let i = 0; i < s.length; i++) {
-    if (romanNumerals[s[i] + s[i + 1]]) {
-      sum += romanNumerals[s[i] + s[i + 1]];
-      i++; 
+    if (i < s.length - 1 && romanNumerals[s[i]] < romanNumerals[s[i + 1]]) {
+      sum -= romanNumerals[s[i]];
     } else {
       sum += romanNumerals[s[i]];
     }
   }
-  console.log(sum);
+  return sum;
 };
 
-romanToInt("MCMXCIV"); // Output should be 1994
-
+romanToInt("MCMXCIV"); 
     </script>
   </head>
   <body></body>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class ListNode {
+    constructor(val = null, next = null) {
+        this.val = val;
+        this.next = next;
+    }
+}
+
+const mergeTwoSortedLists = function(one, two) {
+    let dummy = new ListNode(-1);
+    let prev = dummy;
+
+    while (one && two) {
+        if (one.val <= two.val) {
+            prev.next = one;
+            one = one.next;
+        } else {
+            prev.next = two;
+            two = two.next;
+        }
+        prev = prev.next;
+    }
+
+    if (one) prev.next = one;
+    if (two) prev.next = two;
+
+    return dummy.next;
+};
+
+const arrayToList = (arr) => {
+    let head = new ListNode(arr[0]);
+    let current = head;
+    for (let i = 1; i < arr.length; i++) {
+        current.next = new ListNode(arr[i]);
+        current = current.next;
+    }
+    return head;
+};
+
+const list1 = arrayToList([1, 2, 4]);
+const list2 = arrayToList([1, 3, 4]);
+
+const mergedList = mergeTwoSortedLists(list1, list2);
+
+const printList = (head) => {
+    let current = head;
+    while (current) {
+        console.log(current.val);
+        current = current.next;
+    }
+};
+
+printList(mergedList);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
